@@ -24,6 +24,8 @@ abstract class ThemeColors {
   ];
 }
 
+
+//maps the effects with the keyword
 final effectMap = {
   "slam": "com.apple.MobileSMS.expressivesend.impact",
   "loud": "com.apple.MobileSMS.expressivesend.loud",
@@ -38,6 +40,8 @@ final effectMap = {
   "fireworks": "com.apple.messages.effect.CKFireworksEffect",
   "celebration": "com.apple.messages.effect.CKSparklesEffect",
 };
+
+//Adds the Message Affects and maps them
 
 final stringToMessageEffect = {
   null: MessageEffect.none,

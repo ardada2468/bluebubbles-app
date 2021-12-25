@@ -92,6 +92,7 @@ class _ConversationTileState extends State<ConversationTile> {
       setNewChatData(forceUpdate: true);
     });
 
+    //Lister got new messages.
     EventDispatcher().stream.listen((Map<String, dynamic> event) {
       if (!event.containsKey("type")) return;
 

@@ -63,6 +63,7 @@ class ConversationListState extends State<ConversationList> {
       }
     });
 
+    //Warning Message for if user has old bluebubble server
     SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
       if (prefs.getBool('warning') != true && !kIsWeb) {
         Get.defaultDialog(
@@ -150,6 +151,7 @@ class ConversationListState extends State<ConversationList> {
     );
   }
 
+  //Menu widigt that pops up when you tap the 3 dots on the messeges screen
   Widget buildSettingsButton() => !widget.showArchivedChats && !widget.showUnknownSenders
       ? PopupMenuButton(
           color: context.theme.colorScheme.secondary,
@@ -289,6 +291,7 @@ class ConversationListState extends State<ConversationList> {
         )
       : Container();
 
+  //Camera Button that appears in the messages screen (if enabled in the settings)
   Column buildFloatingActionButton() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -354,6 +357,7 @@ class ConversationListState extends State<ConversationList> {
     );
   }
 
+  //Shows if the app is able to connect to the server (if enabled in settings)
   Widget getConnectionIndicatorWidget() {
     if (!SettingsManager().settings.showConnectionIndicator.value) return Container();
 
@@ -363,6 +367,7 @@ class ConversationListState extends State<ConversationList> {
     ));
   }
 
+  //Builds different skins
   @override
   Widget build(BuildContext context) {
     return ThemeSwitcher(

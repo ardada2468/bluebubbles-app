@@ -134,7 +134,7 @@ class AttachmentFullscreenViewerState extends State<AttachmentFullscreenViewer> 
         body: controller != null
             ? FocusScope(
           child: Focus(
-            focusNode: FocusNode(),
+            focusNode: FocusNode(), 
             autofocus: true,
             onKey: (node, event) {
               Logger.info("Got key label ${event.data.keyLabel}, physical key ${event.data.physicalKey.toString()}, logical key ${event.data.logicalKey.toString()}", tag: "RawKeyboardListener");

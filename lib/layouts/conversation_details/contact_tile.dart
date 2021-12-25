@@ -42,12 +42,14 @@ class ContactTile extends StatelessWidget {
     contactImage = loadAvatar(chat, handle);
   }
 
+  //Function to call on your default call app
   Future<void> makeCall(String phoneNumber) async {
     if (await Permission.phone.request().isGranted) {
       launch("tel://$phoneNumber");
     }
   }
 
+  //Email
   Future<void> startEmail(String email) async {
     launch('mailto:$email');
   }

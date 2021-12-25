@@ -20,6 +20,7 @@ abstract class MessageBlocEventType {
 }
 
 class MessageBlocEvent {
+  //List of Meseges
   List<Message> messages = [];
   Message? message;
   String? remove;

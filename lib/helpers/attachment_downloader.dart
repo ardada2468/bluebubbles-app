@@ -20,6 +20,7 @@ class AttachmentDownloadService extends GetxService {
   final List<String> downloaders = [];
   final List<AttachmentDownloadController> _downloaders = [];
 
+  //Adds a download to the queue
   void addToQueue(AttachmentDownloadController downloader) {
     downloaders.add(downloader.attachment.guid!);
     _downloaders.add(downloader);
@@ -28,6 +29,7 @@ class AttachmentDownloadService extends GetxService {
     }
   }
 
+  //Removes a download from queue
   void removeFromQueue(AttachmentDownloadController downloader) {
     downloaders.remove(downloader.attachment.guid!);
     _downloaders.removeWhere((e) => e.attachment.guid == downloader.attachment.guid);

@@ -39,7 +39,7 @@ class ConversationDetails extends StatefulWidget {
   @override
   _ConversationDetailsState createState() => _ConversationDetailsState();
 }
-
+//Class for the state of the conversation
 class _ConversationDetailsState extends State<ConversationDetails> {
   late TextEditingController controller;
   bool readOnly = true;
@@ -55,6 +55,7 @@ class _ConversationDetailsState extends State<ConversationDetails> {
     return chat.participants.length > maxPageSize;
   }
 
+  //Gets all the participants in the chat
   List<Handle> get participants {
     // If we are showing all, return everything
     if (showMore) return chat.participants;
@@ -71,6 +72,7 @@ class _ConversationDetailsState extends State<ConversationDetails> {
     controller = TextEditingController(text: chat.displayName);
     showNameField = chat.displayName?.isNotEmpty ?? false;
 
+    //Gets all the atachments in the chat
     fetchAttachments();
     ever(ChatBloc().chats, (List<Chat> chats) async {
       Chat? _chat = chats.firstWhereOrNull((e) => e.guid == widget.chat.guid);
@@ -93,6 +95,7 @@ class _ConversationDetailsState extends State<ConversationDetails> {
     if (mounted) setState(() {});
   }
 
+  //Fetches attachment from server
   void fetchAttachments() {
     if (kIsWeb) {
       if (attachmentsForChat.length > 25) attachmentsForChat = attachmentsForChat.sublist(0, 25);
@@ -106,6 +109,7 @@ class _ConversationDetailsState extends State<ConversationDetails> {
     });
   }
 
+//Changes name of chat (PRIVATE API IS NECESSARY)
   void showChangeName(String method) {
     showDialog(
         context: context,
